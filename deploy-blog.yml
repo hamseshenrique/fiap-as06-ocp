@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: hms-blog
-          image: https://github.com/openshift-instruqt/blog-django-py
+          image: image-registry.openshift-image-registry.svc:5000/openshift/python@sha256:210326ea7d1a940d7e8f057cc96a6115c8443658b91a95d6c0ddc91ad80566cd
           ports:
             - containerPort: 8080
