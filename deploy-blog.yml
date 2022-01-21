@@ -1,13 +1,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: example
+  name: blog-hms
   namespace: fiap-hamses-6aso
 spec:
   selector:
     matchLabels:
       app: hms-blog
-  replicas: 3
+  replicas: 1
   template:
     metadata:
       labels:
@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: hms-blog
-          image: openshiftkatacoda/blog-django-py
+          image: https://github.com/openshift-instruqt/blog-django-py
           ports:
             - containerPort: 8080
