@@ -132,7 +132,6 @@ metadata:
   selfLink: /api/v1/namespaces/hamses-ocp-fiap/services/blog-hms-py-git
   uid: 02c8c3ac-b4ce-448a-822c-cfec3128605
 spec:
-  clusterIP: 172.30.100.09
   ports:
   - name: 8080-tcp
     port: 8080

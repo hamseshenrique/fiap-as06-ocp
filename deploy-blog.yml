@@ -152,6 +152,9 @@ spec:
           ports:
             - containerPort: 8080
               protocol: TCP
+          env:
+            - name: BLOG_SITE_NAME
+              value: HMS SOFTWARE        
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
