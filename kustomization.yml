@@ -2,6 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
+  - NewProject.yml
   - Secret.yml
   - ImageStream.yml
   - Route.yml
@@ -12,3 +13,4 @@ resources:
   - PersistentVolumeClaimDB.yml
   - DeploymentConfigBD.yml
   - BuildConfig.yml
+  - HorizontalPodAutoscaler.yml

@@ -783,6 +783,26 @@ status:
   unavailableReplicas: 0
   updatedReplicas: 1
 ---
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: hpa-ocp-fiap
+  namespace: hamses-ocp-fiap
+spec:
+  maxReplicas: 3
+  metrics:
+  - resource:
+      name: cpu
+      target:
+        averageUtilization: 50
+        type: Utilization
+    type: Resource
+  minReplicas: 1
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: blog-hms-py-git
+---
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
