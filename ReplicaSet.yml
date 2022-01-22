@@ -11,9 +11,9 @@ metadata:
       [{"from":{"kind":"ImageStreamTag","name":"blog-hms-py-git:latest","namespace":"fiap-hamses-6aso"},"fieldPath":"spec.template.spec.containers[?(@.name==\"blog-hms-py-git\")].image","pause":"false"}]
     openshift.io/generated-by: OpenShiftWebConsole
   selfLink: >-
-    /apis/apps/v1/namespaces/fiap-hamses-6aso/replicasets/blog-hms-py-git-7fc889997b
+    /apis/apps/v1/namespaces/fiap-hamses-6aso/replicasets/blog-hms-py-git
   resourceVersion: '27524554'
-  name: blog-hms-py-git-7fc889997b
+  name: blog-hms-py-git
   uid: 3da3b573-ef0f-42fc-a2ee-f3c170012a8e
   creationTimestamp: '2022-01-21T23:10:28Z'
   generation: 1
