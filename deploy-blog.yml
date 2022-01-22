@@ -12,7 +12,7 @@ metadata:
   selfLink: /apis/apps/v1/namespaces/fiap-hamses-6aso/deployments/blog-hms-py-git
   resourceVersion: '27524568'
   name: blog-hms-py-git
-  uid: 9a27e126-037c-427a-81ae-b20851a9143c
+  uid: 9a27e126-037c-427a-81ae-b20851a8605
   creationTimestamp: '2022-01-21T23:09:17Z'
   generation: 2
   managedFields:
