@@ -24,9 +24,9 @@ type: Opaque
 ---
 apiVersion: v1
 data:
-  database-name: aG1zLWRhdGFiYXNl
-  database-password: aG1zZGJmaWFwQDA1
-  database-user: ZGh0aHMxMDA=
+  database-name: c2FtcGxlZGI=
+  database-password: c2FtcGxlZGI=
+  database-user: c2FtcGxlZGI=
 kind: Secret
 metadata:
   annotations:
@@ -34,11 +34,11 @@ metadata:
     template.openshift.io/expose-database_name: '{.data[''database-name'']}'
     template.openshift.io/expose-password: '{.data[''database-password'']}'
     template.openshift.io/expose-username: '{.data[''database-user'']}'
-  creationTimestamp: "2022-01-22T01:49:50Z"
+  creationTimestamp: "2022-01-22T20:02:57Z"
   labels:
-    app: hms-database
-    app.kubernetes.io/component: hms-database
-    app.kubernetes.io/instance: hms-database
+    app: sample-database
+    app.kubernetes.io/component: sample-database
+    app.kubernetes.io/instance: sample-database
     template: postgresql-persistent-template
   managedFields:
   - apiVersion: v1
@@ -65,12 +65,12 @@ metadata:
       f:type: {}
     manager: oc
     operation: Update
-    time: "2022-01-22T01:49:50Z"
-  name: hms-database
+    time: "2022-01-22T20:02:57Z"
+  name: sample-database
   namespace: hamses-ocp-fiap
-  resourceVersion: "27636453"
-  selfLink: /api/v1/namespaces/hamses-ocp-fiap/secrets/hms-database
-  uid: f540b51b-bf9b-4be3-8ccf-ebb7e27f8605
+  resourceVersion: "28344456"
+  selfLink: /api/v1/namespaces/hamses-ocp-fiap/secrets/sample-database
+  uid: d9cfbeb7-d89f-4144-971b-b893e7e97800
 type: Opaque
 ---
 apiVersion: v1
@@ -151,11 +151,11 @@ metadata:
   annotations:
     openshift.io/generated-by: OpenShiftNewApp
     template.openshift.io/expose-uri: postgres://{.spec.clusterIP}:{.spec.ports[?(.name=="postgresql")].port}
-  creationTimestamp: "2022-01-22T01:49:50Z"
+  creationTimestamp: "2022-01-22T20:02:57Z"
   labels:
-    app: hms-database
-    app.kubernetes.io/component: hms-database
-    app.kubernetes.io/instance: hms-database
+    app: sample-database
+    app.kubernetes.io/component: sample-database
+    app.kubernetes.io/instance: sample-database
     template: postgresql-persistent-template
   managedFields:
   - apiVersion: v1
@@ -188,21 +188,20 @@ metadata:
         f:type: {}
     manager: oc
     operation: Update
-    time: "2022-01-22T01:49:50Z"
-  name: hms-database
+    time: "2022-01-22T20:02:57Z"
+  name: sample-database
   namespace: hamses-ocp-fiap
-  resourceVersion: "27636458"
-  selfLink: /api/v1/namespaces/hamses-ocp-fiap/services/hms-database
-  uid: 89014699-74d5-4d07-ac65-783f5f038605
+  resourceVersion: "28344460"
+  selfLink: /api/v1/namespaces/hamses-ocp-fiap/services/sample-database
+  uid: 50f88aaa-c7e2-4755-b037-ea92310fcbf2
 spec:
-  clusterIP: 172.30.34.109
   ports:
   - name: postgresql
     port: 5432
     protocol: TCP
     targetPort: 5432
   selector:
-    name: hms-database
+    name: sample-database
   sessionAffinity: None
   type: ClusterIP
 status:
@@ -217,15 +216,71 @@ metadata:
     pv.kubernetes.io/bound-by-controller: "yes"
     volume.beta.kubernetes.io/storage-provisioner: kubernetes.io/cinder
     volume.kubernetes.io/selected-node: na46-bjfsg-worker-0-nph4m
+  creationTimestamp: "2022-01-22T20:02:57Z"
+  finalizers:
+  - kubernetes.io/pvc-protection
   labels:
-    app: hms-database
-    app.kubernetes.io/component: hms-database
-    app.kubernetes.io/instance: hms-database
+    app: sample-database
+    app.kubernetes.io/component: sample-database
+    app.kubernetes.io/instance: sample-database
     template: postgresql-persistent-template
-  name: hmsdatabase
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:openshift.io/generated-by: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:app.kubernetes.io/component: {}
+          f:app.kubernetes.io/instance: {}
+          f:template: {}
+      f:spec:
+        f:accessModes: {}
+        f:resources:
+          f:requests:
+            .: {}
+            f:storage: {}
+        f:volumeMode: {}
+    manager: oc
+    operation: Update
+    time: "2022-01-22T20:02:57Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          f:volume.kubernetes.io/selected-node: {}
+    manager: kube-scheduler
+    operation: Update
+    time: "2022-01-22T20:03:02Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          f:pv.kubernetes.io/bind-completed: {}
+          f:pv.kubernetes.io/bound-by-controller: {}
+          f:volume.beta.kubernetes.io/storage-provisioner: {}
+      f:spec:
+        f:volumeName: {}
+      f:status:
+        f:accessModes: {}
+        f:capacity:
+          .: {}
+          f:storage: {}
+        f:phase: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2022-01-22T20:03:03Z"
+  name: sample-database
   namespace: hamses-ocp-fiap
-  resourceVersion: "28171771"
-  selfLink: /api/v1/namespaces/hamses-ocp-fiap/persistentvolumeclaims/hmsdatabase
+  resourceVersion: "28344577"
+  selfLink: /api/v1/namespaces/hamses-ocp-fiap/persistentvolumeclaims/sample-database
+  uid: 4c573d43-e7c2-41c4-a475-3b8060decc7b
 spec:
   accessModes:
   - ReadWriteOnce
@@ -234,7 +289,7 @@ spec:
       storage: 1Gi
   storageClassName: standard
   volumeMode: Filesystem
-  volumeName: sample-database
+  volumeName: pvc-4c573d43-e7c2-41c4-a475-3b8060decc7b
 status:
   accessModes:
   - ReadWriteOnce
@@ -396,7 +451,12 @@ spec:
         deploymentconfig: blog-hms-py-git
     spec:
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/hamses-ocp-fiap/blog-hms-py-git@sha256:edb3b11b7e555df1bd45d968a4a6a20ec7e98a80e234dacf37066d17c461ff48
+      - env:
+        - name: BLOG_SITE_NAME
+          value: HMS SOFTWARE
+        - name: DATABASE_URL
+          value: postgresql://sampledb:sampledb@sample-database:5432/sampledb
+        image: image-registry.openshift-image-registry.svc:5000/hamses-ocp-fiap/blog-hms-py-git@sha256:edb3b11b7e555df1bd45d968a4a6a20ec7e98a80e234dacf37066d17c461ff48
         imagePullPolicy: Always
         name: blog-hms-py-git
         ports:
@@ -417,12 +477,12 @@ metadata:
   annotations:
     openshift.io/generated-by: OpenShiftNewApp
     template.alpha.openshift.io/wait-for-ready: "true"
-  creationTimestamp: "2022-01-22T01:49:50Z"
+  creationTimestamp: "2022-01-22T20:02:57Z"
   generation: 2
   labels:
-    app: hms-database
-    app.kubernetes.io/component: hms-database
-    app.kubernetes.io/instance: hms-database
+    app: sample-database
+    app.kubernetes.io/component: sample-database
+    app.kubernetes.io/instance: sample-database
     template: postgresql-persistent-template
   managedFields:
   - apiVersion: apps.openshift.io/v1
@@ -548,7 +608,7 @@ metadata:
             f:terminationGracePeriodSeconds: {}
             f:volumes:
               .: {}
-              k:{"name":"hms-database-data"}:
+              k:{"name":"sample-database-data"}:
                 .: {}
                 f:name: {}
                 f:persistentVolumeClaim:
@@ -556,7 +616,7 @@ metadata:
                   f:claimName: {}
     manager: oc
     operation: Update
-    time: "2022-01-22T01:49:50Z"
+    time: "2022-01-22T20:02:57Z"
   - apiVersion: apps.openshift.io/v1
     fieldsType: FieldsV1
     fieldsV1:
@@ -598,17 +658,17 @@ metadata:
         f:updatedReplicas: {}
     manager: openshift-controller-manager
     operation: Update
-    time: "2022-01-22T01:50:32Z"
-  name: hms-database
+    time: "2022-01-22T20:03:21Z"
+  name: sample-database
   namespace: hamses-ocp-fiap
-  resourceVersion: "27636924"
-  selfLink: /apis/apps.openshift.io/v1/namespaces/hamses-ocp-fiap/deploymentconfigs/hms-database
-  uid: 5357873e-8ff1-46f2-ad22-5aeeaece8605
+  resourceVersion: "28344821"
+  selfLink: /apis/apps.openshift.io/v1/namespaces/hamses-ocp-fiap/deploymentconfigs/sample-database
+  uid: a37bb4d2-e93d-4ee7-acb3-446f6f3808c0
 spec:
   replicas: 1
   revisionHistoryLimit: 10
   selector:
-    name: hms-database
+    name: sample-database
   strategy:
     activeDeadlineSeconds: 21600
     recreateParams:
@@ -621,7 +681,7 @@ spec:
         openshift.io/generated-by: OpenShiftNewApp
       creationTimestamp: null
       labels:
-        name: hms-database
+        name: sample-database
     spec:
       containers:
       - env:
@@ -629,17 +689,17 @@ spec:
           valueFrom:
             secretKeyRef:
               key: database-user
-              name: hms-database
+              name: sample-database
         - name: POSTGRESQL_PASSWORD
           valueFrom:
             secretKeyRef:
               key: database-password
-              name: hms-database
+              name: sample-database
         - name: POSTGRESQL_DATABASE
           valueFrom:
             secretKeyRef:
               key: database-name
-              name: hms-database
+              name: sample-database
         image: image-registry.openshift-image-registry.svc:5000/openshift/postgresql@sha256:c58b255376a4c1f6744b56389f0984f465b74e9c6a62626894f850ab74dec0ea
         imagePullPolicy: IfNotPresent
         livenessProbe:
@@ -675,16 +735,16 @@ spec:
         terminationMessagePolicy: File
         volumeMounts:
         - mountPath: /var/lib/pgsql/data
-          name: hms-database-data
+          name: sample-database-data
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
       volumes:
-      - name: hms-database-data
+      - name: sample-database-data
         persistentVolumeClaim:
-          claimName: hmsdatabase
+          claimName: sample-database
   test: false
   triggers:
   - imageChangeParams:
@@ -701,14 +761,14 @@ spec:
 status:
   availableReplicas: 1
   conditions:
-  - lastTransitionTime: "2022-01-22T01:50:30Z"
-    lastUpdateTime: "2022-01-22T01:50:30Z"
+  - lastTransitionTime: "2022-01-22T20:03:21Z"
+    lastUpdateTime: "2022-01-22T20:03:21Z"
     message: Deployment config has minimum availability.
     status: "True"
     type: Available
-  - lastTransitionTime: "2022-01-22T01:50:32Z"
-    lastUpdateTime: "2022-01-22T01:50:32Z"
-    message: replication controller "hms-database-1" successfully rolled out
+  - lastTransitionTime: "2022-01-22T20:03:21Z"
+    lastUpdateTime: "2022-01-22T20:03:21Z"
+    message: replication controller "sample-database-1" successfully rolled out
     reason: NewReplicationControllerAvailable
     status: "True"
     type: Progressing

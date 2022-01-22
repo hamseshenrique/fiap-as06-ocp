@@ -5,17 +5,17 @@ metadata:
     openshift.io/generated-by: OpenShiftNewApp
     template.alpha.openshift.io/wait-for-ready: 'true'
   selfLink: >-
-    /apis/apps.openshift.io/v1/namespaces/hamses-ocp-fiap/deploymentconfigs/hms-database
-  resourceVersion: '27636924'
-  name: hms-database
-  uid: 5357873e-8ff1-46f2-ad22-5aeeaece8605
-  creationTimestamp: '2022-01-22T01:49:50Z'
+    /apis/apps.openshift.io/v1/namespaces/hamses-ocp-fiap/deploymentconfigs/sample-database
+  resourceVersion: '28344821'
+  name: sample-database
+  uid: a37bb4d2-e93d-4ee7-acb3-446f6f3808c0
+  creationTimestamp: '2022-01-22T20:02:57Z'
   generation: 2
   managedFields:
     - manager: oc
       operation: Update
       apiVersion: apps.openshift.io/v1
-      time: '2022-01-22T01:49:50Z'
+      time: '2022-01-22T20:02:57Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:metadata':
@@ -138,7 +138,7 @@ metadata:
               'f:terminationGracePeriodSeconds': {}
               'f:volumes':
                 .: {}
-                'k:{"name":"hms-database-data"}':
+                'k:{"name":"sample-database-data"}':
                   .: {}
                   'f:name': {}
                   'f:persistentVolumeClaim':
@@ -147,7 +147,7 @@ metadata:
     - manager: openshift-controller-manager
       operation: Update
       apiVersion: apps.openshift.io/v1
-      time: '2022-01-22T01:50:32Z'
+      time: '2022-01-22T20:03:21Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:spec':
@@ -188,9 +188,9 @@ metadata:
           'f:latestVersion': {}
   namespace: hamses-ocp-fiap
   labels:
-    app: hms-database
-    app.kubernetes.io/component: hms-database
-    app.kubernetes.io/instance: hms-database
+    app: sample-database
+    app.kubernetes.io/component: sample-database
+    app.kubernetes.io/instance: sample-database
     template: postgresql-persistent-template
 spec:
   strategy:
@@ -216,19 +216,19 @@ spec:
   revisionHistoryLimit: 10
   test: false
   selector:
-    name: hms-database
+    name: sample-database
   template:
     metadata:
       creationTimestamp: null
       labels:
-        name: hms-database
+        name: sample-database
       annotations:
         openshift.io/generated-by: OpenShiftNewApp
     spec:
       volumes:
-        - name: hms-database-data
+        - name: sample-database-data
           persistentVolumeClaim:
-            claimName: hmsdatabase
+            claimName: sample-database
       containers:
         - resources:
             limits:
@@ -258,17 +258,17 @@ spec:
             - name: POSTGRESQL_USER
               valueFrom:
                 secretKeyRef:
-                  name: hms-database
+                  name: sample-database
                   key: database-user
             - name: POSTGRESQL_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: hms-database
+                  name: sample-database
                   key: database-password
             - name: POSTGRESQL_DATABASE
               valueFrom:
                 secretKeyRef:
-                  name: hms-database
+                  name: sample-database
                   key: database-name
           securityContext:
             capabilities: {}
@@ -278,7 +278,7 @@ spec:
               protocol: TCP
           imagePullPolicy: IfNotPresent
           volumeMounts:
-            - name: hms-database-data
+            - name: sample-database-data
               mountPath: /var/lib/pgsql/data
           terminationMessagePolicy: File
           image: >-
@@ -301,14 +301,14 @@ status:
   conditions:
     - type: Available
       status: 'True'
-      lastUpdateTime: '2022-01-22T01:50:30Z'
-      lastTransitionTime: '2022-01-22T01:50:30Z'
+      lastUpdateTime: '2022-01-22T20:03:21Z'
+      lastTransitionTime: '2022-01-22T20:03:21Z'
       message: Deployment config has minimum availability.
     - type: Progressing
       status: 'True'
-      lastUpdateTime: '2022-01-22T01:50:32Z'
-      lastTransitionTime: '2022-01-22T01:50:32Z'
+      lastUpdateTime: '2022-01-22T20:03:21Z'
+      lastTransitionTime: '2022-01-22T20:03:21Z'
       reason: NewReplicationControllerAvailable
-      message: replication controller "hms-database-1" successfully rolled out
+      message: replication controller "sample-database-1" successfully rolled out
   replicas: 1
   readyReplicas: 1
