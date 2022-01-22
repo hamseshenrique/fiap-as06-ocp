@@ -91,12 +91,6 @@ metadata:
           'f:readyReplicas': {}
           'f:replicas': {}
   namespace: fiap-hamses-6aso
-  ownerReferences:
-    - apiVersion: apps/v1
-      kind: Deployment
-      name: blog-hms-py-git
-      controller: true
-      blockOwnerDeletion: true
   labels:
     app: blog-hms-py-git
     deploymentconfig: blog-hms-py-git
