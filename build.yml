@@ -411,25 +411,6 @@ spec:
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
-status:
-  availableReplicas: 1
-  conditions:
-  - lastTransitionTime: "2022-01-21T23:10:34Z"
-    lastUpdateTime: "2022-01-21T23:10:34Z"
-    message: Deployment has minimum availability.
-    reason: MinimumReplicasAvailable
-    status: "True"
-    type: Available
-  - lastTransitionTime: "2022-01-21T23:09:17Z"
-    lastUpdateTime: "2022-01-21T23:10:34Z"
-    message: ReplicaSet "blog-hms-py-gits" has successfully progressed.
-    reason: NewReplicaSetAvailable
-    status: "True"
-    type: Progressing
-  observedGeneration: 2
-  readyReplicas: 1
-  replicas: 1
-  updatedReplicas: 1
 ---
 apiVersion: apps.openshift.io/v1
 kind: DeploymentConfig
@@ -743,144 +724,6 @@ status:
   unavailableReplicas: 0
   updatedReplicas: 1
 ---
-apiVersion: apps/v1
-kind: ReplicaSet
-metadata:
-  annotations:
-    alpha.image.policy.openshift.io/resolve-names: '*'
-    app.openshift.io/vcs-uri: https://github.com/openshift-katacoda/blog-django-py.git
-    deployment.kubernetes.io/desired-replicas: "1"
-    deployment.kubernetes.io/max-replicas: "2"
-    deployment.kubernetes.io/revision: "2"
-    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"blog-hms-py-git:latest","namespace":"hamses-ocp-fiap"},"fieldPath":"spec.template.spec.containers[?(@.name==\"blog-hms-py-git\")].image","pause":"false"}]'
-    openshift.io/generated-by: OpenShiftWebConsole
-  creationTimestamp: "2022-01-21T23:10:28Z"
-  generation: 1
-  labels:
-    app: blog-hms-py-git
-    deploymentconfig: blog-hms-py-git
-    pod-template-hash: 7fc889997b
-  managedFields:
-  - apiVersion: apps/v1
-    fieldsType: FieldsV1
-    fieldsV1:
-      f:metadata:
-        f:annotations:
-          .: {}
-          f:alpha.image.policy.openshift.io/resolve-names: {}
-          f:app.openshift.io/vcs-uri: {}
-          f:deployment.kubernetes.io/desired-replicas: {}
-          f:deployment.kubernetes.io/max-replicas: {}
-          f:deployment.kubernetes.io/revision: {}
-          f:image.openshift.io/triggers: {}
-          f:openshift.io/generated-by: {}
-        f:labels:
-          .: {}
-          f:app: {}
-          f:deploymentconfig: {}
-          f:pod-template-hash: {}
-        f:ownerReferences:
-          .: {}
-          k:{"uid":"9a27e126-037c-427a-81ae-b20851a9143c"}:
-            .: {}
-            f:apiVersion: {}
-            f:blockOwnerDeletion: {}
-            f:controller: {}
-            f:kind: {}
-            f:name: {}
-            f:uid: {}
-      f:spec:
-        f:replicas: {}
-        f:selector:
-          f:matchLabels:
-            .: {}
-            f:app: {}
-            f:pod-template-hash: {}
-        f:template:
-          f:metadata:
-            f:labels:
-              .: {}
-              f:app: {}
-              f:deploymentconfig: {}
-              f:pod-template-hash: {}
-          f:spec:
-            f:containers:
-              k:{"name":"blog-hms-py-git"}:
-                .: {}
-                f:image: {}
-                f:imagePullPolicy: {}
-                f:name: {}
-                f:ports:
-                  .: {}
-                  k:{"containerPort":8080,"protocol":"TCP"}:
-                    .: {}
-                    f:containerPort: {}
-                    f:protocol: {}
-                f:resources: {}
-                f:terminationMessagePath: {}
-                f:terminationMessagePolicy: {}
-            f:dnsPolicy: {}
-            f:restartPolicy: {}
-            f:schedulerName: {}
-            f:securityContext: {}
-            f:terminationGracePeriodSeconds: {}
-      f:status:
-        f:availableReplicas: {}
-        f:fullyLabeledReplicas: {}
-        f:observedGeneration: {}
-        f:readyReplicas: {}
-        f:replicas: {}
-    manager: kube-controller-manager
-    operation: Update
-    time: "2022-01-21T23:10:34Z"
-  name: blog-hms-py-git
-  namespace: hamses-ocp-fiap
-  ownerReferences:
-  - apiVersion: apps/v1
-    blockOwnerDeletion: true
-    controller: true
-    kind: Deployment
-    name: blog-hms-py-git
-    uid: 9a27e126-037c-427a-81ae-b20851a8605
-  resourceVersion: "27524554"
-  selfLink: /apis/apps/v1/namespaces/hamses-ocp-fiap/replicasets/blog-hms-py-git
-  uid: 3da3b573-ef0f-42fc-a2ee-f3c170012a8e
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: blog-hms-py-git
-      pod-template-hash: 7fc889997b
-  template:
-    metadata:
-      creationTimestamp: null
-      labels:
-        app: blog-hms-py-git
-        deploymentconfig: blog-hms-py-git
-        pod-template-hash: 7fc889997b
-    spec:
-      containers:
-      - image: image-registry.openshift-image-registry.svc:5000/hamses-ocp-fiap/blog-hms-py-git@sha256:edb3b11b7e555df1bd45d968a4a6a20ec7e98a80e234dacf37066d17c461ff48
-        imagePullPolicy: Always
-        name: blog-hms-py-git
-        ports:
-        - containerPort: 8080
-          protocol: TCP
-        resources: {}
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
-      dnsPolicy: ClusterFirst
-      restartPolicy: Always
-      schedulerName: default-scheduler
-      securityContext: {}
-      terminationGracePeriodSeconds: 30
-status:
-  availableReplicas: 1
-  fullyLabeledReplicas: 1
-  observedGeneration: 1
-  readyReplicas: 1
-  replicas: 1
----
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
@@ -980,17 +823,7 @@ spec:
     type: Source
   successfulBuildsHistoryLimit: 5
   triggers:
-  - generic:
-      secretReference:
-        name: blog-hms-py-git-generic-webhook-secret
-    type: Generic
-  - github:
-      secretReference:
-        name: blog-hms-py-git-github-webhook-secret
-    type: GitHub
-  - imageChange:
-      lastTriggeredImageID: image-registry.openshift-image-registry.svc:5000/openshift/python@sha256:210326ea7d1a940d7e8f057cc96a6115c8443658b91a95d6c0ddc91ad80566cd
-    type: ImageChange
+  - type: ImageChange
   - type: ConfigChange
 status:
   lastVersion: 1
@@ -1046,12 +879,7 @@ status:
   dockerImageRepository: image-registry.openshift-image-registry.svc:5000/hamses-ocp-fiap/blog-hms-py-git
   publicDockerImageRepository: default-route-openshift-image-registry.apps.na46.prod.nextcle.com/hamses-ocp-fiap/blog-hms-py-git
   tags:
-  - items:
-    - created: "2022-01-21T23:10:28Z"
-      dockerImageReference: image-registry.openshift-image-registry.svc:5000/hamses-ocp-fiap/blog-hms-py-git@sha256:edb3b11b7e555df1bd45d968a4a6a20ec7e98a80e234dacf37066d17c461ff48
-      generation: 1
-      image: sha256:edb3b11b7e555df1bd45d968a4a6a20ec7e98a80e234dacf37066d17c461ff48
-    tag: latest
+  - tag: latest
 ---
 apiVersion: route.openshift.io/v1
 kind: Route

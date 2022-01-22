@@ -97,18 +97,10 @@ spec:
       uri: 'https://github.com/openshift-katacoda/blog-django-py.git'
     contextDir: /
   triggers:
-    - type: Generic
-      generic:
-        secretReference:
-          name: blog-hms-py-git-generic-webhook-secret
-    - type: GitHub
-      github:
-        secretReference:
-          name: blog-hms-py-git-github-webhook-secret
     - type: ImageChange
-      imageChange:
-        lastTriggeredImageID: >-
-          image-registry.openshift-image-registry.svc:5000/openshift/python@sha256:210326ea7d1a940d7e8f057cc96a6115c8443658b91a95d6c0ddc91ad80566cd
+      # imageChange:
+      #   lastTriggeredImageID: >-
+      #     image-registry.openshift-image-registry.svc:5000/openshift/python@sha256:210326ea7d1a940d7e8f057cc96a6115c8443658b91a95d6c0ddc91ad80566cd
     - type: ConfigChange
   runPolicy: Serial
 status:

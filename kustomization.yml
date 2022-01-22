@@ -4,12 +4,11 @@ kind: Kustomization
 resources:
   - Secret.yml
   - ImageStream.yml
-  - BuildConfig.yml
   - Route.yml
   - Service.yml
-  - ReplicaSet.yml
   - deploy-blog.yml
   - SecretDB.yml
   - ServiceDB.yml
   - PersistentVolumeClaimDB.yml
   - DeploymentConfigBD.yml
+  - BuildConfig.yml
