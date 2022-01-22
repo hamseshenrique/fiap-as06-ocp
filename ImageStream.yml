@@ -1,0 +1,62 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: ''
+    app.openshift.io/vcs-uri: 'https://github.com/openshift-katacoda/blog-django-py.git'
+    openshift.io/generated-by: OpenShiftWebConsole
+  selfLink: >-
+    /apis/image.openshift.io/v1/namespaces/fiap-hamses-6aso/imagestreams/blog-hms-py-git
+  resourceVersion: '27524479'
+  name: blog-hms-py-git
+  uid: 5812355a-3388-474f-a992-3b461c329eb3
+  creationTimestamp: '2022-01-21T23:09:16Z'
+  generation: 1
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: image.openshift.io/v1
+      time: '2022-01-21T23:09:16Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:app.openshift.io/vcs-ref': {}
+            'f:app.openshift.io/vcs-uri': {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/name': {}
+            'f:app.kubernetes.io/part-of': {}
+            'f:app.openshift.io/runtime': {}
+            'f:app.openshift.io/runtime-version': {}
+  namespace: fiap-hamses-6aso
+  labels:
+    app: blog-hms-py-git
+    app.kubernetes.io/component: blog-hms-py-git
+    app.kubernetes.io/instance: blog-hms-py-git
+    app.kubernetes.io/name: python
+    app.kubernetes.io/part-of: blog-hms-py-git-app
+    app.openshift.io/runtime: python
+    app.openshift.io/runtime-version: 3.8-ubi7
+spec:
+  lookupPolicy:
+    local: false
+status:
+  dockerImageRepository: >-
+    image-registry.openshift-image-registry.svc:5000/fiap-hamses-6aso/blog-hms-py-git
+  publicDockerImageRepository: >-
+    default-route-openshift-image-registry.apps.na46.prod.nextcle.com/fiap-hamses-6aso/blog-hms-py-git
+  tags:
+    - tag: latest
+      items:
+        - created: '2022-01-21T23:10:28Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/fiap-hamses-6aso/blog-hms-py-git@sha256:edb3b11b7e555df1bd45d968a4a6a20ec7e98a80e234dacf37066d17c461ff48
+          image: >-
+            sha256:edb3b11b7e555df1bd45d968a4a6a20ec7e98a80e234dacf37066d17c461ff48
+          generation: 1
