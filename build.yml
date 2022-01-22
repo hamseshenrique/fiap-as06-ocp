@@ -1,0 +1,1127 @@
+apiVersion: v1
+data:
+  WebHookSecretKey: YWU4OWQ2OTUwZTJiMWMzYQ==
+kind: Secret
+metadata:
+  creationTimestamp: "2022-01-21T23:09:22Z"
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:data:
+        .: {}
+        f:WebHookSecretKey: {}
+      f:type: {}
+    manager: Mozilla
+    operation: Update
+    time: "2022-01-21T23:09:22Z"
+  name: blog-hms-py-git-github-webhook-secret
+  namespace: hamses-ocp-fiap
+  resourceVersion: "27523770"
+  selfLink: /api/v1/namespaces/hamses-ocp-fiap/secrets/blog-hms-py-git-github-webhook-secret
+  uid: 1dae94a7-39e3-48a4-870f-2bcbaf008605
+type: Opaque
+---
+apiVersion: v1
+data:
+  database-name: aG1zLWRhdGFiYXNl
+  database-password: aG1zZGJmaWFwQDA1
+  database-user: ZGh0aHMxMDA=
+kind: Secret
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+    template.openshift.io/expose-database_name: '{.data[''database-name'']}'
+    template.openshift.io/expose-password: '{.data[''database-password'']}'
+    template.openshift.io/expose-username: '{.data[''database-user'']}'
+  creationTimestamp: "2022-01-22T01:49:50Z"
+  labels:
+    app: hms-database
+    app.kubernetes.io/component: hms-database
+    app.kubernetes.io/instance: hms-database
+    template: postgresql-persistent-template
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:data:
+        .: {}
+        f:database-name: {}
+        f:database-password: {}
+        f:database-user: {}
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:openshift.io/generated-by: {}
+          f:template.openshift.io/expose-database_name: {}
+          f:template.openshift.io/expose-password: {}
+          f:template.openshift.io/expose-username: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:app.kubernetes.io/component: {}
+          f:app.kubernetes.io/instance: {}
+          f:template: {}
+      f:type: {}
+    manager: oc
+    operation: Update
+    time: "2022-01-22T01:49:50Z"
+  name: hms-database
+  namespace: hamses-ocp-fiap
+  resourceVersion: "27636453"
+  selfLink: /api/v1/namespaces/hamses-ocp-fiap/secrets/hms-database
+  uid: f540b51b-bf9b-4be3-8ccf-ebb7e27f8605
+type: Opaque
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: ""
+    app.openshift.io/vcs-uri: https://github.com/openshift-katacoda/blog-django-py.git
+    openshift.io/generated-by: OpenShiftWebConsole
+  creationTimestamp: "2022-01-21T23:09:21Z"
+  labels:
+    app: blog-hms-py-git
+    app.kubernetes.io/component: blog-hms-py-git
+    app.kubernetes.io/instance: blog-hms-py-git
+    app.kubernetes.io/name: python
+    app.kubernetes.io/part-of: blog-hms-py-git-app
+    app.openshift.io/runtime: python
+    app.openshift.io/runtime-version: 3.8-ubi7
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:app.openshift.io/vcs-ref: {}
+          f:app.openshift.io/vcs-uri: {}
+          f:openshift.io/generated-by: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:app.kubernetes.io/component: {}
+          f:app.kubernetes.io/instance: {}
+          f:app.kubernetes.io/name: {}
+          f:app.kubernetes.io/part-of: {}
+          f:app.openshift.io/runtime: {}
+          f:app.openshift.io/runtime-version: {}
+      f:spec:
+        f:ports:
+          .: {}
+          k:{"port":8080,"protocol":"TCP"}:
+            .: {}
+            f:name: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:selector:
+          .: {}
+          f:app: {}
+          f:deploymentconfig: {}
+        f:sessionAffinity: {}
+        f:type: {}
+    manager: Mozilla
+    operation: Update
+    time: "2022-01-21T23:09:21Z"
+  name: blog-hms-py-git
+  namespace: hamses-ocp-fiap
+  resourceVersion: "27523755"
+  selfLink: /api/v1/namespaces/hamses-ocp-fiap/services/blog-hms-py-git
+  uid: 02c8c3ac-b4ce-448a-822c-cfec3128605
+spec:
+  clusterIP: 172.30.100.09
+  ports:
+  - name: 8080-tcp
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: blog-hms-py-git
+    deploymentconfig: blog-hms-py-git
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+    template.openshift.io/expose-uri: postgres://{.spec.clusterIP}:{.spec.ports[?(.name=="postgresql")].port}
+  creationTimestamp: "2022-01-22T01:49:50Z"
+  labels:
+    app: hms-database
+    app.kubernetes.io/component: hms-database
+    app.kubernetes.io/instance: hms-database
+    template: postgresql-persistent-template
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:openshift.io/generated-by: {}
+          f:template.openshift.io/expose-uri: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:app.kubernetes.io/component: {}
+          f:app.kubernetes.io/instance: {}
+          f:template: {}
+      f:spec:
+        f:ports:
+          .: {}
+          k:{"port":5432,"protocol":"TCP"}:
+            .: {}
+            f:name: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:selector:
+          .: {}
+          f:name: {}
+        f:sessionAffinity: {}
+        f:type: {}
+    manager: oc
+    operation: Update
+    time: "2022-01-22T01:49:50Z"
+  name: hms-database
+  namespace: hamses-ocp-fiap
+  resourceVersion: "27636458"
+  selfLink: /api/v1/namespaces/hamses-ocp-fiap/services/hms-database
+  uid: 89014699-74d5-4d07-ac65-783f5f038605
+spec:
+  clusterIP: 172.30.34.109
+  ports:
+  - name: postgresql
+    port: 5432
+    protocol: TCP
+    targetPort: 5432
+  selector:
+    name: hms-database
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+    pv.kubernetes.io/bind-completed: "yes"
+    pv.kubernetes.io/bound-by-controller: "yes"
+    volume.beta.kubernetes.io/storage-provisioner: kubernetes.io/cinder
+    volume.kubernetes.io/selected-node: na46-bjfsg-worker-0-nph4m
+  labels:
+    app: hms-database
+    app.kubernetes.io/component: hms-database
+    app.kubernetes.io/instance: hms-database
+    template: postgresql-persistent-template
+  name: hmsdatabase
+  namespace: hamses-ocp-fiap
+  resourceVersion: "28171771"
+  selfLink: /api/v1/namespaces/hamses-ocp-fiap/persistentvolumeclaims/hmsdatabase
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: standard
+  volumeMode: Filesystem
+  volumeName: sample-database
+status:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  phase: Bound
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    alpha.image.policy.openshift.io/resolve-names: '*'
+    app.openshift.io/vcs-ref: ""
+    app.openshift.io/vcs-uri: https://github.com/openshift-katacoda/blog-django-py.git
+    deployment.kubernetes.io/revision: "2"
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"blog-hms-py-git:latest","namespace":"hamses-ocp-fiap"},"fieldPath":"spec.template.spec.containers[?(@.name==\"blog-hms-py-git\")].image","pause":"false"}]'
+    openshift.io/generated-by: OpenShiftWebConsole
+  creationTimestamp: "2022-01-21T23:09:17Z"
+  generation: 2
+  labels:
+    app: blog-hms-py-git
+    app.kubernetes.io/component: blog-hms-py-git
+    app.kubernetes.io/instance: blog-hms-py-git
+    app.kubernetes.io/name: python
+    app.kubernetes.io/part-of: blog-hms-py-git-app
+    app.openshift.io/runtime: python
+    app.openshift.io/runtime-version: 3.8-ubi7
+  managedFields:
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:alpha.image.policy.openshift.io/resolve-names: {}
+          f:app.openshift.io/vcs-ref: {}
+          f:app.openshift.io/vcs-uri: {}
+          f:image.openshift.io/triggers: {}
+          f:openshift.io/generated-by: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:app.kubernetes.io/component: {}
+          f:app.kubernetes.io/instance: {}
+          f:app.kubernetes.io/name: {}
+          f:app.kubernetes.io/part-of: {}
+          f:app.openshift.io/runtime: {}
+          f:app.openshift.io/runtime-version: {}
+      f:spec:
+        f:progressDeadlineSeconds: {}
+        f:replicas: {}
+        f:revisionHistoryLimit: {}
+        f:selector:
+          f:matchLabels:
+            .: {}
+            f:app: {}
+        f:strategy:
+          f:rollingUpdate:
+            .: {}
+            f:maxSurge: {}
+            f:maxUnavailable: {}
+          f:type: {}
+        f:template:
+          f:metadata:
+            f:labels:
+              .: {}
+              f:app: {}
+              f:deploymentconfig: {}
+          f:spec:
+            f:containers:
+              k:{"name":"blog-hms-py-git"}:
+                .: {}
+                f:imagePullPolicy: {}
+                f:name: {}
+                f:ports:
+                  .: {}
+                  k:{"containerPort":8080,"protocol":"TCP"}:
+                    .: {}
+                    f:containerPort: {}
+                    f:protocol: {}
+                f:resources: {}
+                f:terminationMessagePath: {}
+                f:terminationMessagePolicy: {}
+            f:dnsPolicy: {}
+            f:restartPolicy: {}
+            f:schedulerName: {}
+            f:securityContext: {}
+            f:terminationGracePeriodSeconds: {}
+    manager: Mozilla
+    operation: Update
+    time: "2022-01-21T23:09:17Z"
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        f:template:
+          f:spec:
+            f:containers:
+              k:{"name":"blog-hms-py-git"}:
+                f:image: {}
+    manager: openshift-controller-manager
+    operation: Update
+    time: "2022-01-21T23:10:28Z"
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          f:deployment.kubernetes.io/revision: {}
+      f:status:
+        f:availableReplicas: {}
+        f:conditions:
+          .: {}
+          k:{"type":"Available"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:lastUpdateTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Progressing"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:lastUpdateTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+        f:observedGeneration: {}
+        f:readyReplicas: {}
+        f:replicas: {}
+        f:updatedReplicas: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2022-01-21T23:10:34Z"
+  name: blog-hms-py-git
+  namespace: hamses-ocp-fiap
+  resourceVersion: "27524568"
+  selfLink: /apis/apps/v1/namespaces/hamses-ocp-fiap/deployments/blog-hms-py-git
+  uid: 9a27e126-037c-427a-81ae-b20851a8605
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: blog-hms-py-git
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: blog-hms-py-git
+        deploymentconfig: blog-hms-py-git
+    spec:
+      containers:
+      - image: image-registry.openshift-image-registry.svc:5000/hamses-ocp-fiap/blog-hms-py-git@sha256:edb3b11b7e555df1bd45d968a4a6a20ec7e98a80e234dacf37066d17c461ff48
+        imagePullPolicy: Always
+        name: blog-hms-py-git
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2022-01-21T23:10:34Z"
+    lastUpdateTime: "2022-01-21T23:10:34Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2022-01-21T23:09:17Z"
+    lastUpdateTime: "2022-01-21T23:10:34Z"
+    message: ReplicaSet "blog-hms-py-gits" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 2
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1
+---
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+    template.alpha.openshift.io/wait-for-ready: "true"
+  creationTimestamp: "2022-01-22T01:49:50Z"
+  generation: 2
+  labels:
+    app: hms-database
+    app.kubernetes.io/component: hms-database
+    app.kubernetes.io/instance: hms-database
+    template: postgresql-persistent-template
+  managedFields:
+  - apiVersion: apps.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:openshift.io/generated-by: {}
+          f:template.alpha.openshift.io/wait-for-ready: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:app.kubernetes.io/component: {}
+          f:app.kubernetes.io/instance: {}
+          f:template: {}
+      f:spec:
+        f:replicas: {}
+        f:selector:
+          .: {}
+          f:name: {}
+        f:strategy:
+          f:activeDeadlineSeconds: {}
+          f:recreateParams:
+            .: {}
+            f:timeoutSeconds: {}
+          f:type: {}
+        f:template:
+          .: {}
+          f:metadata:
+            .: {}
+            f:annotations:
+              .: {}
+              f:openshift.io/generated-by: {}
+            f:creationTimestamp: {}
+            f:labels:
+              .: {}
+              f:name: {}
+          f:spec:
+            .: {}
+            f:containers:
+              .: {}
+              k:{"name":"postgresql"}:
+                .: {}
+                f:env:
+                  .: {}
+                  k:{"name":"POSTGRESQL_DATABASE"}:
+                    .: {}
+                    f:name: {}
+                    f:valueFrom:
+                      .: {}
+                      f:secretKeyRef:
+                        .: {}
+                        f:key: {}
+                        f:name: {}
+                  k:{"name":"POSTGRESQL_PASSWORD"}:
+                    .: {}
+                    f:name: {}
+                    f:valueFrom:
+                      .: {}
+                      f:secretKeyRef:
+                        .: {}
+                        f:key: {}
+                        f:name: {}
+                  k:{"name":"POSTGRESQL_USER"}:
+                    .: {}
+                    f:name: {}
+                    f:valueFrom:
+                      .: {}
+                      f:secretKeyRef:
+                        .: {}
+                        f:key: {}
+                        f:name: {}
+                f:imagePullPolicy: {}
+                f:livenessProbe:
+                  .: {}
+                  f:exec:
+                    .: {}
+                    f:command: {}
+                  f:failureThreshold: {}
+                  f:initialDelaySeconds: {}
+                  f:periodSeconds: {}
+                  f:successThreshold: {}
+                  f:timeoutSeconds: {}
+                f:name: {}
+                f:ports:
+                  .: {}
+                  k:{"containerPort":5432,"protocol":"TCP"}:
+                    .: {}
+                    f:containerPort: {}
+                    f:protocol: {}
+                f:readinessProbe:
+                  .: {}
+                  f:exec:
+                    .: {}
+                    f:command: {}
+                  f:failureThreshold: {}
+                  f:initialDelaySeconds: {}
+                  f:periodSeconds: {}
+                  f:successThreshold: {}
+                  f:timeoutSeconds: {}
+                f:resources:
+                  .: {}
+                  f:limits:
+                    .: {}
+                    f:memory: {}
+                f:securityContext:
+                  .: {}
+                  f:capabilities: {}
+                  f:privileged: {}
+                f:terminationMessagePath: {}
+                f:terminationMessagePolicy: {}
+                f:volumeMounts:
+                  .: {}
+                  k:{"mountPath":"/var/lib/pgsql/data"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+            f:dnsPolicy: {}
+            f:restartPolicy: {}
+            f:schedulerName: {}
+            f:securityContext: {}
+            f:terminationGracePeriodSeconds: {}
+            f:volumes:
+              .: {}
+              k:{"name":"hms-database-data"}:
+                .: {}
+                f:name: {}
+                f:persistentVolumeClaim:
+                  .: {}
+                  f:claimName: {}
+    manager: oc
+    operation: Update
+    time: "2022-01-22T01:49:50Z"
+  - apiVersion: apps.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        f:template:
+          f:spec:
+            f:containers:
+              k:{"name":"postgresql"}:
+                f:image: {}
+        f:triggers: {}
+      f:status:
+        f:availableReplicas: {}
+        f:conditions:
+          .: {}
+          k:{"type":"Available"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:lastUpdateTime: {}
+            f:message: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Progressing"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:lastUpdateTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+        f:details:
+          .: {}
+          f:causes: {}
+          f:message: {}
+        f:latestVersion: {}
+        f:observedGeneration: {}
+        f:readyReplicas: {}
+        f:replicas: {}
+        f:unavailableReplicas: {}
+        f:updatedReplicas: {}
+    manager: openshift-controller-manager
+    operation: Update
+    time: "2022-01-22T01:50:32Z"
+  name: hms-database
+  namespace: hamses-ocp-fiap
+  resourceVersion: "27636924"
+  selfLink: /apis/apps.openshift.io/v1/namespaces/hamses-ocp-fiap/deploymentconfigs/hms-database
+  uid: 5357873e-8ff1-46f2-ad22-5aeeaece8605
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    name: hms-database
+  strategy:
+    activeDeadlineSeconds: 21600
+    recreateParams:
+      timeoutSeconds: 600
+    resources: {}
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        openshift.io/generated-by: OpenShiftNewApp
+      creationTimestamp: null
+      labels:
+        name: hms-database
+    spec:
+      containers:
+      - env:
+        - name: POSTGRESQL_USER
+          valueFrom:
+            secretKeyRef:
+              key: database-user
+              name: hms-database
+        - name: POSTGRESQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: database-password
+              name: hms-database
+        - name: POSTGRESQL_DATABASE
+          valueFrom:
+            secretKeyRef:
+              key: database-name
+              name: hms-database
+        image: image-registry.openshift-image-registry.svc:5000/openshift/postgresql@sha256:c58b255376a4c1f6744b56389f0984f465b74e9c6a62626894f850ab74dec0ea
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          exec:
+            command:
+            - /usr/libexec/check-container
+            - --live
+          failureThreshold: 3
+          initialDelaySeconds: 120
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 10
+        name: postgresql
+        ports:
+        - containerPort: 5432
+          protocol: TCP
+        readinessProbe:
+          exec:
+            command:
+            - /usr/libexec/check-container
+          failureThreshold: 3
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources:
+          limits:
+            memory: 512Mi
+        securityContext:
+          capabilities: {}
+          privileged: false
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /var/lib/pgsql/data
+          name: hms-database-data
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: hms-database-data
+        persistentVolumeClaim:
+          claimName: hmsdatabase
+  test: false
+  triggers:
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - postgresql
+      from:
+        kind: ImageStreamTag
+        name: postgresql:10-el8
+        namespace: openshift
+      lastTriggeredImage: image-registry.openshift-image-registry.svc:5000/openshift/postgresql@sha256:c58b255376a4c1f6744b56389f0984f465b74e9c6a62626894f850ab74dec0ea
+    type: ImageChange
+  - type: ConfigChange
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2022-01-22T01:50:30Z"
+    lastUpdateTime: "2022-01-22T01:50:30Z"
+    message: Deployment config has minimum availability.
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2022-01-22T01:50:32Z"
+    lastUpdateTime: "2022-01-22T01:50:32Z"
+    message: replication controller "hms-database-1" successfully rolled out
+    reason: NewReplicationControllerAvailable
+    status: "True"
+    type: Progressing
+  details:
+    causes:
+    - type: ConfigChange
+    message: config change
+  latestVersion: 1
+  observedGeneration: 2
+  readyReplicas: 1
+  replicas: 1
+  unavailableReplicas: 0
+  updatedReplicas: 1
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  annotations:
+    alpha.image.policy.openshift.io/resolve-names: '*'
+    app.openshift.io/vcs-uri: https://github.com/openshift-katacoda/blog-django-py.git
+    deployment.kubernetes.io/desired-replicas: "1"
+    deployment.kubernetes.io/max-replicas: "2"
+    deployment.kubernetes.io/revision: "2"
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"blog-hms-py-git:latest","namespace":"hamses-ocp-fiap"},"fieldPath":"spec.template.spec.containers[?(@.name==\"blog-hms-py-git\")].image","pause":"false"}]'
+    openshift.io/generated-by: OpenShiftWebConsole
+  creationTimestamp: "2022-01-21T23:10:28Z"
+  generation: 1
+  labels:
+    app: blog-hms-py-git
+    deploymentconfig: blog-hms-py-git
+    pod-template-hash: 7fc889997b
+  managedFields:
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:alpha.image.policy.openshift.io/resolve-names: {}
+          f:app.openshift.io/vcs-uri: {}
+          f:deployment.kubernetes.io/desired-replicas: {}
+          f:deployment.kubernetes.io/max-replicas: {}
+          f:deployment.kubernetes.io/revision: {}
+          f:image.openshift.io/triggers: {}
+          f:openshift.io/generated-by: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:deploymentconfig: {}
+          f:pod-template-hash: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"9a27e126-037c-427a-81ae-b20851a9143c"}:
+            .: {}
+            f:apiVersion: {}
+            f:blockOwnerDeletion: {}
+            f:controller: {}
+            f:kind: {}
+            f:name: {}
+            f:uid: {}
+      f:spec:
+        f:replicas: {}
+        f:selector:
+          f:matchLabels:
+            .: {}
+            f:app: {}
+            f:pod-template-hash: {}
+        f:template:
+          f:metadata:
+            f:labels:
+              .: {}
+              f:app: {}
+              f:deploymentconfig: {}
+              f:pod-template-hash: {}
+          f:spec:
+            f:containers:
+              k:{"name":"blog-hms-py-git"}:
+                .: {}
+                f:image: {}
+                f:imagePullPolicy: {}
+                f:name: {}
+                f:ports:
+                  .: {}
+                  k:{"containerPort":8080,"protocol":"TCP"}:
+                    .: {}
+                    f:containerPort: {}
+                    f:protocol: {}
+                f:resources: {}
+                f:terminationMessagePath: {}
+                f:terminationMessagePolicy: {}
+            f:dnsPolicy: {}
+            f:restartPolicy: {}
+            f:schedulerName: {}
+            f:securityContext: {}
+            f:terminationGracePeriodSeconds: {}
+      f:status:
+        f:availableReplicas: {}
+        f:fullyLabeledReplicas: {}
+        f:observedGeneration: {}
+        f:readyReplicas: {}
+        f:replicas: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2022-01-21T23:10:34Z"
+  name: blog-hms-py-git
+  namespace: hamses-ocp-fiap
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Deployment
+    name: blog-hms-py-git
+    uid: 9a27e126-037c-427a-81ae-b20851a8605
+  resourceVersion: "27524554"
+  selfLink: /apis/apps/v1/namespaces/hamses-ocp-fiap/replicasets/blog-hms-py-git
+  uid: 3da3b573-ef0f-42fc-a2ee-f3c170012a8e
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blog-hms-py-git
+      pod-template-hash: 7fc889997b
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: blog-hms-py-git
+        deploymentconfig: blog-hms-py-git
+        pod-template-hash: 7fc889997b
+    spec:
+      containers:
+      - image: image-registry.openshift-image-registry.svc:5000/hamses-ocp-fiap/blog-hms-py-git@sha256:edb3b11b7e555df1bd45d968a4a6a20ec7e98a80e234dacf37066d17c461ff48
+        imagePullPolicy: Always
+        name: blog-hms-py-git
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  fullyLabeledReplicas: 1
+  observedGeneration: 1
+  readyReplicas: 1
+  replicas: 1
+---
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: ""
+    app.openshift.io/vcs-uri: https://github.com/openshift-katacoda/blog-django-py.git
+    openshift.io/generated-by: OpenShiftWebConsole
+  creationTimestamp: "2022-01-21T23:09:16Z"
+  labels:
+    app: blog-hms-py-git
+    app.kubernetes.io/component: blog-hms-py-git
+    app.kubernetes.io/instance: blog-hms-py-git
+    app.kubernetes.io/name: python
+    app.kubernetes.io/part-of: blog-hms-py-git-app
+    app.openshift.io/runtime: python
+    app.openshift.io/runtime-version: 3.8-ubi7
+  managedFields:
+  - apiVersion: build.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:app.openshift.io/vcs-ref: {}
+          f:app.openshift.io/vcs-uri: {}
+          f:openshift.io/generated-by: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:app.kubernetes.io/component: {}
+          f:app.kubernetes.io/instance: {}
+          f:app.kubernetes.io/name: {}
+          f:app.kubernetes.io/part-of: {}
+          f:app.openshift.io/runtime: {}
+          f:app.openshift.io/runtime-version: {}
+      f:spec:
+        f:output:
+          f:to:
+            .: {}
+            f:kind: {}
+            f:name: {}
+        f:runPolicy: {}
+        f:source:
+          f:contextDir: {}
+          f:git:
+            .: {}
+            f:uri: {}
+          f:type: {}
+        f:strategy:
+          f:sourceStrategy:
+            .: {}
+            f:from:
+              .: {}
+              f:kind: {}
+              f:name: {}
+              f:namespace: {}
+          f:type: {}
+    manager: Mozilla
+    operation: Update
+    time: "2022-01-21T23:09:16Z"
+  - apiVersion: build.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        f:triggers: {}
+      f:status:
+        f:lastVersion: {}
+    manager: openshift-apiserver
+    operation: Update
+    time: "2022-01-21T23:09:17Z"
+  name: blog-hms-py-git
+  namespace: hamses-ocp-fiap
+  resourceVersion: "27523657"
+  selfLink: /apis/build.openshift.io/v1/namespaces/hamses-ocp-fiap/buildconfigs/blog-hms-py-git
+  uid: 27453941-209b-4b6d-82c6-5837bf22ae2c
+spec:
+  failedBuildsHistoryLimit: 5
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: blog-hms-py-git:latest
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    contextDir: /
+    git:
+      uri: https://github.com/openshift-katacoda/blog-django-py.git
+    type: Git
+  strategy:
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        name: python:3.8-ubi7
+        namespace: openshift
+    type: Source
+  successfulBuildsHistoryLimit: 5
+  triggers:
+  - generic:
+      secretReference:
+        name: blog-hms-py-git-generic-webhook-secret
+    type: Generic
+  - github:
+      secretReference:
+        name: blog-hms-py-git-github-webhook-secret
+    type: GitHub
+  - imageChange:
+      lastTriggeredImageID: image-registry.openshift-image-registry.svc:5000/openshift/python@sha256:210326ea7d1a940d7e8f057cc96a6115c8443658b91a95d6c0ddc91ad80566cd
+    type: ImageChange
+  - type: ConfigChange
+status:
+  lastVersion: 1
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: ""
+    app.openshift.io/vcs-uri: https://github.com/openshift-katacoda/blog-django-py.git
+    openshift.io/generated-by: OpenShiftWebConsole
+  creationTimestamp: "2022-01-21T23:09:16Z"
+  generation: 1
+  labels:
+    app: blog-hms-py-git
+    app.kubernetes.io/component: blog-hms-py-git
+    app.kubernetes.io/instance: blog-hms-py-git
+    app.kubernetes.io/name: python
+    app.kubernetes.io/part-of: blog-hms-py-git-app
+    app.openshift.io/runtime: python
+    app.openshift.io/runtime-version: 3.8-ubi7
+  managedFields:
+  - apiVersion: image.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:app.openshift.io/vcs-ref: {}
+          f:app.openshift.io/vcs-uri: {}
+          f:openshift.io/generated-by: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:app.kubernetes.io/component: {}
+          f:app.kubernetes.io/instance: {}
+          f:app.kubernetes.io/name: {}
+          f:app.kubernetes.io/part-of: {}
+          f:app.openshift.io/runtime: {}
+          f:app.openshift.io/runtime-version: {}
+    manager: Mozilla
+    operation: Update
+    time: "2022-01-21T23:09:16Z"
+  name: blog-hms-py-git
+  namespace: hamses-ocp-fiap
+  resourceVersion: "27524479"
+  selfLink: /apis/image.openshift.io/v1/namespaces/hamses-ocp-fiap/imagestreams/blog-hms-py-git
+  uid: 5812355a-3388-474f-a992-3b461c329eb3
+spec:
+  lookupPolicy:
+    local: false
+status:
+  dockerImageRepository: image-registry.openshift-image-registry.svc:5000/hamses-ocp-fiap/blog-hms-py-git
+  publicDockerImageRepository: default-route-openshift-image-registry.apps.na46.prod.nextcle.com/hamses-ocp-fiap/blog-hms-py-git
+  tags:
+  - items:
+    - created: "2022-01-21T23:10:28Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/hamses-ocp-fiap/blog-hms-py-git@sha256:edb3b11b7e555df1bd45d968a4a6a20ec7e98a80e234dacf37066d17c461ff48
+      generation: 1
+      image: sha256:edb3b11b7e555df1bd45d968a4a6a20ec7e98a80e234dacf37066d17c461ff48
+    tag: latest
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+  creationTimestamp: "2022-01-21T23:09:21Z"
+  labels:
+    app: blog-hms-py-git
+    app.kubernetes.io/component: blog-hms-py-git
+    app.kubernetes.io/instance: blog-hms-py-git
+    app.kubernetes.io/name: python
+    app.kubernetes.io/part-of: blog-hms-py-git-app
+    app.openshift.io/runtime: python
+    app.openshift.io/runtime-version: 3.8-ubi7
+  managedFields:
+  - apiVersion: route.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:app: {}
+          f:app.kubernetes.io/component: {}
+          f:app.kubernetes.io/instance: {}
+          f:app.kubernetes.io/name: {}
+          f:app.kubernetes.io/part-of: {}
+          f:app.openshift.io/runtime: {}
+          f:app.openshift.io/runtime-version: {}
+      f:spec:
+        f:port:
+          .: {}
+          f:targetPort: {}
+        f:to:
+          f:kind: {}
+          f:name: {}
+          f:weight: {}
+        f:wildcardPolicy: {}
+    manager: Mozilla
+    operation: Update
+    time: "2022-01-21T23:09:21Z"
+  - apiVersion: route.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:ingress: {}
+    manager: openshift-router
+    operation: Update
+    time: "2022-01-21T23:09:22Z"
+  name: blog-hms-py-git
+  namespace: hamses-ocp-fiap
+  resourceVersion: "27523768"
+  selfLink: /apis/route.openshift.io/v1/namespaces/hamses-ocp-fiap/routes/blog-hms-py-git
+  uid: 42b2ed27-13b2-45fd-b5b6-92759ec98605
+spec:
+  host: blog-hms-py-git-hamses-ocp-fiap.apps.na46.prod.nextcle.com
+  port:
+    targetPort: 8080-tcp
+  to:
+    kind: Service
+    name: blog-hms-py-git
+    weight: 100
+  wildcardPolicy: None
+status:
+  ingress:
+  - conditions:
+    - lastTransitionTime: "2022-01-21T23:09:22Z"
+      status: "True"
+      type: Admitted
+    host: blog-hms-py-git-hamses-ocp-fiap.apps.na46.prod.nextcle.com
+    routerCanonicalHostname: apps.na46.prod.nextcle.com
+    routerName: default
+    wildcardPolicy: None

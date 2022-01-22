@@ -6,7 +6,7 @@ metadata:
     app.openshift.io/vcs-uri: 'https://github.com/openshift-katacoda/blog-django-py.git'
     openshift.io/generated-by: OpenShiftWebConsole
   selfLink: >-
-    /apis/build.openshift.io/v1/namespaces/fiap-hamses-6aso/buildconfigs/blog-hms-py-git
+    /apis/build.openshift.io/v1/namespaces/hamses-ocp-fiap/buildconfigs/blog-hms-py-git
   resourceVersion: '27523657'
   name: blog-hms-py-git
   uid: 27453941-209b-4b6d-82c6-5837bf22ae2c
@@ -65,7 +65,7 @@ metadata:
           'f:triggers': {}
         'f:status':
           'f:lastVersion': {}
-  namespace: fiap-hamses-6aso
+  namespace: hamses-ocp-fiap
   labels:
     app: blog-hms-py-git
     app.kubernetes.io/component: blog-hms-py-git

@@ -7,9 +7,9 @@ metadata:
     app.openshift.io/vcs-uri: 'https://github.com/openshift-katacoda/blog-django-py.git'
     deployment.kubernetes.io/revision: '2'
     image.openshift.io/triggers: >-
-      [{"from":{"kind":"ImageStreamTag","name":"blog-hms-py-git:latest","namespace":"fiap-hamses-6aso"},"fieldPath":"spec.template.spec.containers[?(@.name==\"blog-hms-py-git\")].image","pause":"false"}]
+      [{"from":{"kind":"ImageStreamTag","name":"blog-hms-py-git:latest","namespace":"hamses-ocp-fiap"},"fieldPath":"spec.template.spec.containers[?(@.name==\"blog-hms-py-git\")].image","pause":"false"}]
     openshift.io/generated-by: OpenShiftWebConsole
-  selfLink: /apis/apps/v1/namespaces/fiap-hamses-6aso/deployments/blog-hms-py-git
+  selfLink: /apis/apps/v1/namespaces/hamses-ocp-fiap/deployments/blog-hms-py-git
   resourceVersion: '27524568'
   name: blog-hms-py-git
   uid: 9a27e126-037c-427a-81ae-b20851a8605
@@ -124,7 +124,7 @@ metadata:
           'f:readyReplicas': {}
           'f:replicas': {}
           'f:updatedReplicas': {}
-  namespace: fiap-hamses-6aso
+  namespace: hamses-ocp-fiap
   labels:
     app: blog-hms-py-git
     app.kubernetes.io/component: blog-hms-py-git
@@ -148,7 +148,7 @@ spec:
       containers:
         - name: blog-hms-py-git
           image: >-
-            image-registry.openshift-image-registry.svc:5000/fiap-hamses-6aso/blog-hms-py-git@sha256:edb3b11b7e555df1bd45d968a4a6a20ec7e98a80e234dacf37066d17c461ff48
+            image-registry.openshift-image-registry.svc:5000/hamses-ocp-fiap/blog-hms-py-git@sha256:edb3b11b7e555df1bd45d968a4a6a20ec7e98a80e234dacf37066d17c461ff48
           ports:
             - containerPort: 8080
               protocol: TCP

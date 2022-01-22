@@ -4,7 +4,7 @@ metadata:
   annotations:
     openshift.io/host.generated: 'true'
   selfLink: >-
-    /apis/route.openshift.io/v1/namespaces/fiap-hamses-6aso/routes/blog-hms-py-git
+    /apis/route.openshift.io/v1/namespaces/hamses-ocp-fiap/routes/blog-hms-py-git
   resourceVersion: '27523768'
   name: blog-hms-py-git
   uid: 42b2ed27-13b2-45fd-b5b6-92759ec98605
@@ -43,7 +43,7 @@ metadata:
       fieldsV1:
         'f:status':
           'f:ingress': {}
-  namespace: fiap-hamses-6aso
+  namespace: hamses-ocp-fiap
   labels:
     app: blog-hms-py-git
     app.kubernetes.io/component: blog-hms-py-git
@@ -53,7 +53,7 @@ metadata:
     app.openshift.io/runtime: python
     app.openshift.io/runtime-version: 3.8-ubi7
 spec:
-  host: blog-hms-py-git-fiap-hamses-6aso.apps.na46.prod.nextcle.com
+  host: blog-hms-py-git-hamses-ocp-fiap.apps.na46.prod.nextcle.com
   to:
     kind: Service
     name: blog-hms-py-git
@@ -63,7 +63,7 @@ spec:
   wildcardPolicy: None
 status:
   ingress:
-    - host: blog-hms-py-git-fiap-hamses-6aso.apps.na46.prod.nextcle.com
+    - host: blog-hms-py-git-hamses-ocp-fiap.apps.na46.prod.nextcle.com
       routerName: default
       conditions:
         - type: Admitted
