@@ -143,12 +143,12 @@ spec:
       creationTimestamp: null
       labels:
         app: blog-hms-py-git
-        deploymentconfig: blog-django-py-git
+        deploymentconfig: blog-hms-py-git
     spec:
       containers:
-        - name: blog-django-py-git
+        - name: blog-hms-py-git
           image: >-
-            image-registry.openshift-image-registry.svc:5000/fiap-hamses-6aso/blog-django-py-git@sha256:edb3b11b7e555df1bd45d968a4a6a20ec7e98a80e234dacf37066d17c461ff48
+            image-registry.openshift-image-registry.svc:5000/fiap-hamses-6aso/blog-hms-py-git@sha256:edb3b11b7e555df1bd45d968a4a6a20ec7e98a80e234dacf37066d17c461ff48
           ports:
             - containerPort: 8080
               protocol: TCP
