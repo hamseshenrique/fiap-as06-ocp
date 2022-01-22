@@ -65,7 +65,7 @@ spec:
   selector:
     app: blog-hms-py-git
     deploymentconfig: blog-hms-py-git
-  clusterIP: 172.30.100.39
+  clusterIP: 172.30.100.49
   type: ClusterIP
   sessionAffinity: None
 status:
