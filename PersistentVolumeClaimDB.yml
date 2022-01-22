@@ -1,0 +1,33 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+    pv.kubernetes.io/bind-completed: 'yes'
+    pv.kubernetes.io/bound-by-controller: 'yes'
+    volume.beta.kubernetes.io/storage-provisioner: kubernetes.io/cinder
+    volume.kubernetes.io/selected-node: na46-bjfsg-worker-0-nph4m
+  selfLink: /api/v1/namespaces/hamses-ocp-fiap/persistentvolumeclaims/hmsdatabase
+  resourceVersion: '28171771'
+  name: hmsdatabase
+  namespace: hamses-ocp-fiap
+  labels:
+    app: hms-database
+    app.kubernetes.io/component: hms-database
+    app.kubernetes.io/instance: hms-database
+    template: postgresql-persistent-template
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  volumeName: sample-database
+  storageClassName: standard
+  volumeMode: Filesystem
+status:
+  phase: Bound
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 1Gi

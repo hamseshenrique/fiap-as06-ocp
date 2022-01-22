@@ -1,0 +1,62 @@
+kind: Service
+apiVersion: v1
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+    template.openshift.io/expose-uri: 'postgres://{.spec.clusterIP}:{.spec.ports[?(.name=="postgresql")].port}'
+  selfLink: /api/v1/namespaces/hamses-ocp-fiap/services/hms-database
+  resourceVersion: '27636458'
+  name: hms-database
+  uid: 89014699-74d5-4d07-ac65-783f5f038605
+  creationTimestamp: '2022-01-22T01:49:50Z'
+  managedFields:
+    - manager: oc
+      operation: Update
+      apiVersion: v1
+      time: '2022-01-22T01:49:50Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/generated-by': {}
+            'f:template.openshift.io/expose-uri': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:template': {}
+        'f:spec':
+          'f:ports':
+            .: {}
+            'k:{"port":5432,"protocol":"TCP"}':
+              .: {}
+              'f:name': {}
+              'f:port': {}
+              'f:protocol': {}
+              'f:targetPort': {}
+          'f:selector':
+            .: {}
+            'f:name': {}
+          'f:sessionAffinity': {}
+          'f:type': {}
+  namespace: hamses-ocp-fiap
+  labels:
+    app: hms-database
+    app.kubernetes.io/component: hms-database
+    app.kubernetes.io/instance: hms-database
+    template: postgresql-persistent-template
+spec:
+  ports:
+    - name: postgresql
+      protocol: TCP
+      port: 5432
+      targetPort: 5432
+  selector:
+    name: hms-database
+  clusterIP: 172.30.34.109
+  type: ClusterIP
+  sessionAffinity: None
+status:
+  loadBalancer: {}
