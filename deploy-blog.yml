@@ -186,4 +186,4 @@ status:
       lastUpdateTime: '2022-01-21T23:10:34Z'
       lastTransitionTime: '2022-01-21T23:09:17Z'
       reason: NewReplicaSetAvailable
-      message: ReplicaSet "blog-hms-py-git-7fc889997b" has successfully progressed.
+      message: ReplicaSet "blog-hms-py-gits" has successfully progressed.
